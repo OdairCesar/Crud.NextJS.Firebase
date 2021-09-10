@@ -71,7 +71,7 @@ export default function Tabela(props: TabelaProps){
         <table className='w-full rounded-xl overflow-hidden'>
             <thead className={`
                 text-gray-100
-                bg-gradient-to-r to-purple-500 to-purple-800
+                bg-gradient-to-r from-purple-500 to-purple-800
             `}>
                 {renderizarCabecalho()}
             </thead>
