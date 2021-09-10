@@ -1,6 +1,22 @@
 import Layout from "../components/Layout"
+import Tabela from "../components/Tabela"
+import Cliente from "../core/Cliente"
 
 export default function Home() {
+
+  const clientes = [
+    new Cliente('Ana', 15, '1'),
+    new Cliente('Carlos', 14, '3'),
+    new Cliente('Paulo', 16, '2')
+  ]
+
+  function clienteSelecionado(cliente: Cliente){
+
+  }
+
+  function clienteExcluido(cliente: Cliente){
+
+  }
 
   return (
     <div className={`
@@ -9,7 +25,11 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <span>Conteudo</span>
+        <Tabela 
+          clientes={clientes} 
+          clienteSelecionado={clienteSelecionado}
+          clienteExcluido={clienteExcluido}
+          />
       </Layout>
     </div>
   )
