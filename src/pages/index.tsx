@@ -7,6 +7,7 @@ import { useState } from "react"
 
 export default function Home() {
   const [visivel, setVisivel] = useState<'tabela' | 'from'>('tabela')
+  const [cliente, setCliente] = useState<Cliente>(Cliente.vazio)
 
   const clientes = [
     new Cliente('Ana', 15, '1'),
@@ -15,11 +16,17 @@ export default function Home() {
   ]
 
   function clienteSelecionado(cliente: Cliente){
-
+    setCliente(cliente)
+    setVisivel('from')
   }
 
   function clienteExcluido(cliente: Cliente){
 
+  }
+
+  function novoCliente(){
+    setCliente(Cliente.vazio)
+    setVisivel('from')
   }
 
   function salvarCliente(cliente: Cliente){
@@ -39,7 +46,7 @@ export default function Home() {
               <Botao 
                 className="mb-4" 
                 cor='green'
-                onClick={()=>setVisivel('from')}
+                onClick={novoCliente}
                 >
                 Novo Cliente
               </Botao>
@@ -52,7 +59,7 @@ export default function Home() {
           </>
         ):(
           <Formulario 
-            cliente={clientes[0]}
+            cliente={cliente}
             clienteMudou={salvarCliente}
             cancelado={() => setVisivel('tabela')}
             />
